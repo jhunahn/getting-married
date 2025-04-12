@@ -1,0 +1,55 @@
+/*
+* color variables
+*/
+
+// by contents
+$bg-color: #FFF8F6;
+$col-key: #000;
+$col-sub: #C38A36;
+$col-gr: #1f2f98;
+$col-br: #fb7bbe;
+$col-err: #ff5252;
+
+
+// by fractions
+$col-red: #F89185;
+$col-blue: #84A6FF;
+$col-brown: #5F1D15;
+$col-orange: #FFC08F;
+
+/*
+* font-size variables
+*/
+
+// by size
+$font-max: 100rem;
+$font-lar: 44rem;
+$font-mid-lar: 38rem;
+$font-mid: 34rem;
+$font-mid-s: 28rem;
+$font-s: 24rem;
+$font-xs: 18rem;
+$font-xxs: 14rem;
+$font-input: 16px;
+// by function
+$font-fracture: 40rem;
+
+/*
+* margin variables
+*/
+
+// by common
+$top-gap-h: 60;
+$top-gap: 120;
+$top-gap-2x: #{$top-gap * 2};
+$top-gap-3x: #{$top-gap * 3};
+$left-gap: 12%;
+$left-gap-center: 25%;
+
+
+// z index
+$z-bg: 10;
+
+
+// padding
+$side-padding: 15px;
