@@ -1,0 +1,28 @@
+{
+    "title": {
+        "image": "we.png"
+    },
+    "en": {
+        "groom": {
+            "firstName": "Jihun",
+            "lastName": "Ahn"
+        },
+    
+        "bride": {
+            "firstName": "Hyojeong",
+            "lastName": "Nam"
+        }    
+    },
+    "ko" : {
+        "groom": {
+            "firstName": "지훈",
+            "lastName": "안"
+        },
+    
+        "bride": {
+            "firstName": "효정",
+            "lastName": "남"
+        }
+    
+    }
+}
