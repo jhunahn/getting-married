@@ -18,7 +18,7 @@ export default defineComponent({
 
 <style scoped>
 .app {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
   color: #333;
   padding: 20px;
   width: 430px;
