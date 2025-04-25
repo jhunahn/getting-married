@@ -1,17 +1,20 @@
 <template>
   <div class="app">
     <HeroSection />
+    <EnvelopeCanvas />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import EnvelopeCanvas from "./components/EnvelopeCanvas.vue";
 import HeroSection from "./components/HeroSection.vue";
 
 export default defineComponent({
   components: {
     HeroSection,
+    EnvelopeCanvas,
   },
 });
 </script>
