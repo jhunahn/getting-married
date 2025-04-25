@@ -1,14 +1,20 @@
 <template>
   <div ref="scrollContainer" class="scroll-container" @scroll="handleScroll">
     <canvas ref="canvas" class="envelope-canvas"></canvas>
+    <img ref="overlayImage" class="overlay-image" :src="happliyEverAfter" />
+    <div ref="textOverlay" class="text-overlay">Wedding Day</div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from "vue";
 
+import happliyEverAfter from "@/assets/images/happily-ever-after.png";
+
 const canvas = ref<HTMLCanvasElement | null>(null);
+const overlayImage = ref<HTMLCanvasElement | null>(null);
 const scrollContainer = ref<HTMLCanvasElement | null>(null);
+const textOverlay = ref<HTMLCanvasElement | null>(null);
 
 let ctx: CanvasRenderingContext2D | null;
 
@@ -41,6 +47,14 @@ const handleScroll = () => {
 
   if (canvas.value) {
     canvas.value.style.transform = `translateY(${translateY}px)`;
+  }
+
+  if (overlayImage.value) {
+    overlayImage.value.style.transform = `translate(-50%, -50%) translateY(${translateY}px)`;
+  }
+
+  if (textOverlay.value) {
+    textOverlay.value.style.transform = `translate(-50%, calc(-50% + ${translateY}px))`;
   }
 };
 

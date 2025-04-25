@@ -12,3 +12,34 @@
   pointer-events: none;
   transition: transform 0.3s ease-out;
 }
+
+.overlay-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  z-index: 20;
+  object-fit: cover;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  color: #333;
+  font-family: 'Matsury';
+  font-weight: bold;
+  white-space: nowrap;
+  font-size: 80px;
+  object-fit: cover;
+}
+
+@font-face {
+  font-family: 'Matsury';
+  src: url('@/assets/fonts/matsury.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
