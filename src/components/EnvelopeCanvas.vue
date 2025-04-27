@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { defineEmits, onBeforeUnmount, onMounted, ref } from "vue";
 
 import happliyEverAfter from "@/assets/images/happily-ever-after.png";
 
@@ -17,6 +17,7 @@ const scrollContainer = ref<HTMLCanvasElement | null>(null);
 const textOverlay = ref<HTMLCanvasElement | null>(null);
 
 let ctx: CanvasRenderingContext2D | null;
+const emit = defineEmits(["scrollProgress"]);
 
 const drawVEnvelope = () => {
   if (!ctx) return;
@@ -50,12 +51,15 @@ const handleScroll = () => {
   }
 
   if (overlayImage.value) {
+    // overlayImage.value.style.opacity = (1 - progress).toString();
     overlayImage.value.style.transform = `translate(-50%, -50%) translateY(${translateY}px)`;
   }
 
   if (textOverlay.value) {
+    // textOverlay.value.style.opacity = (1 - progress).toString();
     textOverlay.value.style.transform = `translate(-50%, calc(-50% + ${translateY}px))`;
   }
+  emit("scrollProgress", progress);
 };
 
 const resizeCanvas = () => {

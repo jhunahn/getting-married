@@ -1,5 +1,11 @@
 {
+    "invitation": {
+        "date": "2025-08-02T12:30:00.000Z",
+        "timezone": "Asia/Seoul"
+    },
     "en": {
+        "location": "W Square",
+        "hall": "8F Chapel",
         "groom": {
             "firstName": "Jihun",
             "lastName": "Ahn"
@@ -8,9 +14,12 @@
         "bride": {
             "firstName": "Hyojeong",
             "lastName": "Nam"
-        }    
+        }
     },
     "ko" : {
+        "description": "사랑하는 이들에게\n나란한 이름으로 보내는 첫 번째 편지\n한곳을 바라보며 첫 발을 떼는 날\n아껴주신 고마운 분들을 모십니다.",
+        "location": "판교 더블유 스퀘어",
+        "hall": "8층 채플홀",
         "groom": {
             "firstName": "지훈",
             "lastName": "안"
@@ -20,6 +29,5 @@
             "firstName": "효정",
             "lastName": "남"
         }
-    
     }
 }
