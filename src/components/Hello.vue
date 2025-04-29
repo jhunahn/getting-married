@@ -4,14 +4,20 @@
       <span class="fade-up top">{{ groom }}</span>
       <span class="fade-up middle"><img :src="and" /></span>
       <span class="fade-up bottom">{{ bridal }}</span>
-      <img v-if="imageUrl" class="fade-up image" :src="imageUrl" alt="key visual" />
+      <img
+        v-if="imageUrl"
+        class="fade-up image"
+        :src="imageUrl"
+        alt="key visual"
+      />
     </h1>
   </div>
 </template>
 
 <script setup lang="ts">
-import and from "@/assets/images/and.png";
 import { computed } from "vue";
+
+import and from "@/assets/images/and.png";
 
 const prop = defineProps<{
   groom: string;
@@ -19,9 +25,9 @@ const prop = defineProps<{
   image: string;
 }>();
 
-const imageModules = import.meta.glob('@/assets/images/*', {
+const imageModules = import.meta.glob("@/assets/images/*", {
   eager: true,
-  import: "default"
+  import: "default",
 });
 
 const imageUrl = computed(() => {

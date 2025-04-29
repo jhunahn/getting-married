@@ -1,13 +1,75 @@
 <template>
-  <Hello :groom="groomName" :bridal="brideName" :image="config.title.image" />
+  <Hello
+    :groom="elements.title.groom"
+    :bridal="elements.title.bride"
+    :image="title.image"
+  />
+  <Greetings
+    :detail="elements"
+    :location="location"
+    :date="date"
+    :messages="ko.message"
+  />
 </template>
 
 <script setup lang="ts">
-import Hello from "./components/Hello.vue";
-import config from "./config/config.json";
+import { gsap } from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { onMounted } from "vue";
 
-const groomName = config.en.groom.firstName.toUpperCase();
-const brideName = config.en.bride.firstName.toUpperCase();
+import Greetings from "./components/Greetings.vue";
+import Hello from "./components/Hello.vue";
+import { date, en, ko, location, title } from "./config/config.json";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const elements = {
+  title: {
+    groom: en.groom.firstName.toUpperCase(),
+    bride: en.bride.firstName.toUpperCase(),
+  },
+  groom: {
+    name: `${ko.groom.firstName}`,
+    sibling: ko.groom.sibling,
+    father: `${ko.groom.father.lastName}${ko.groom.father.firstName}`,
+    mother: `${ko.groom.mother.lastName}${ko.groom.mother.firstName}`,
+  },
+  bride: {
+    name: `${ko.bride.firstName}`,
+    sibling: ko.bride.sibling,
+    father: `${ko.bride.father.lastName}${ko.bride.father.firstName}`,
+    mother: `${ko.bride.mother.lastName}${ko.bride.mother.firstName}`,
+  },
+};
+
+function gsaps() {
+  const sections = [".hello", ".greetings"];
+
+  sections.forEach(sectionSelector => {
+    const textSelector = `${sectionSelector} .text-int`;
+
+    ScrollTrigger.create({
+      trigger: sectionSelector,
+      start: "top-=90% center",
+      onEnter: () => {
+        const textElements = gsap.utils.toArray<HTMLElement>(textSelector);
+        textElements.forEach(el => {
+          ScrollTrigger.create({
+            trigger: el,
+            start: "top 90%",
+            onEnter: () => {
+              el.classList.add("hello");
+            },
+          });
+        });
+      },
+    });
+  });
+}
+
+onMounted(() => {
+  gsaps();
+});
 </script>
 
 <style lang="scss">

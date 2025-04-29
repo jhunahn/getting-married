@@ -5,24 +5,75 @@
     "en": {
         "groom": {
             "firstName": "Jihun",
-            "lastName": "Ahn"
+            "lastName": "Ahn",
+            "father": {
+                "firstName": "Byeonggyu",
+                "lastName": "Ahn"
+            },
+            "mother": {
+                "firstName": "Dongwon",
+                "lastName": "Kim"
+            },
+            "sibling": "the 2nd-born son"
         },
-    
         "bride": {
             "firstName": "Hyojeong",
-            "lastName": "Nam"
+            "lastName": "Nam",
+            "father": {
+                "firstName": "Gwangwoo",
+                "lastName": "Nam"
+            },
+            "mother": {
+                "firstName": "Okryeon",
+                "lastName": "Kim"
+            },
+            "sibling": "the first-born daughter"
         }    
     },
     "ko" : {
         "groom": {
             "firstName": "지훈",
-            "lastName": "안"
+            "lastName": "안",
+            "father": {
+                "firstName": "병규",
+                "lastName": "안"
+            },
+            "mother": {
+                "firstName": "동원",
+                "lastName": "김"
+            },
+            "sibling": "차남"
         },
-    
         "bride": {
             "firstName": "효정",
-            "lastName": "남"
-        }
-    
+            "lastName": "남",
+            "father": {
+                "firstName": "광우",
+                "lastName": "남"
+            },
+            "mother": {
+                "firstName": "옥연",
+                "lastName": "김"
+            },
+            "sibling": "장녀"
+        },
+        "message": [
+            "사랑하는 이들에게",
+            "나란한 이름으로 보내는 첫 번째 편지",
+            "한곳을 바라보며 첫 발을 떼는 날",
+            "아껴주신 고마운 분들을 모십니다."
+        ]
+    },
+    "date": {
+      "year": 2025,
+      "month": 8,
+      "day": 2,
+      "hour": 12,
+      "minute": 30
+    },
+    "location": {
+      "name": "더블유스퀘어",
+      "city": "판교",
+      "hall": "8층 채플홀"
     }
 }
