@@ -37,7 +37,9 @@
       <ul class="way text-int">
         <li class="tt short">
           <dl>
-            <dt>자차</dt>
+            <dt>
+              <span class="material-symbols-outlined">directions_car</span>
+            </dt>
             <dd>
               <div>
                 <span
@@ -55,7 +57,9 @@
       <ul class="way text-int">
         <li class="tt short">
           <dl>
-            <dt>지하철</dt>
+            <dt>
+              <span class="material-symbols-outlined">directions_subway</span>
+            </dt>
             <dd>
               <span
                 v-for="(item, idx) in location.detail.transfortation.subway
@@ -71,7 +75,9 @@
       <ul class="way text-int">
         <li class="tt short">
           <dl>
-            <dt>버스</dt>
+            <dt>
+              <span class="material-symbols-outlined">directions_bus</span>
+            </dt>
             <dd>
               <li
                 v-for="(item, key) in location.detail.transfortation.bus"
@@ -176,6 +182,9 @@ defineProps<{
 }
 .way {
   margin: 32px 0 0 20px;
+  .material-symbols-outlined {
+    vertical-align: middle;
+  }
   > li {
     margin-top: 22px;
     font-size: $font-xxs;
