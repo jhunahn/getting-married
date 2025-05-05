@@ -36,6 +36,9 @@ defineProps<{
   color: $col-key;
   &.is-right {
     text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     h2 strong:before {
       right: auto;
       left: -50px;
