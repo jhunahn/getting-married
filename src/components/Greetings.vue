@@ -6,10 +6,6 @@
         <span class="tt">{{ formattedDates.full }}</span>
         <span class="tt">{{ formattedDates.hour }}</span>
       </p>
-      <div class="info-place text-int">
-        <p class="tt">{{ location.city }} {{ location.name }}</p>
-        <p class="tt">{{ location.hall }}</p>
-      </div>
     </div>
 
     <div class="parents">
@@ -46,12 +42,6 @@ type WeddingDate = {
   minute: number;
 };
 
-type WeddingLocation = {
-  name: string;
-  city: string;
-  hall: string;
-};
-
 type Role = "groom" | "bride";
 type CoupleInfo = {
   [key in Role]: {
@@ -65,7 +55,6 @@ type CoupleInfo = {
 const props = defineProps<{
   detail: CoupleInfo;
   date: WeddingDate;
-  location: WeddingLocation;
   messages: Array<string>;
 }>();
 
@@ -94,27 +83,12 @@ const formattedDates = computed(() => {
   padding-top: 20px;
 }
 
-.message {
-  display: block;
-  position: relative;
-  z-index: $z-bg;
-  margin: 0 0 0 $left-gap;
-  justify-content: flex-end;
-  font-size: $font-xs;
-  line-height: 1.6;
-}
-
 .info {
   position: relative;
   z-index: $z-bg;
   margin: #{$top-gap}px 0 0 $left-gap;
   font-size: $font-s;
   line-height: 1.6;
-  &-place {
-    margin-top: 20px;
-    line-height: 1.4;
-    font-size: $font-s;
-  }
 }
 
 .parents {

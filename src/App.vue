@@ -1,22 +1,21 @@
 <template>
   <Hello :groom="elements.title.groom" :bridal="elements.title.bride" />
-  <Greetings
-    :detail="elements"
-    :location="location"
-    :date="date"
-    :messages="ko.message"
-  />
+  <Greetings :detail="elements" :date="date" :messages="ko.message" />
+  <Maps :location="location" />
 </template>
 
 <script setup lang="ts">
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { onMounted } from "vue";
+import { useKakao } from "vue3-kakao-maps/@utils";
 
 import Greetings from "./components/Greetings.vue";
 import Hello from "./components/Hello.vue";
+import Maps from "./components/Maps.vue";
 import { date, en, ko, location } from "./config/config.json";
 
+useKakao(import.meta.env.VITE_KAKAO_API_KEY);
 gsap.registerPlugin(ScrollTrigger);
 
 const elements = {
@@ -39,7 +38,7 @@ const elements = {
 };
 
 function gsaps() {
-  const sections = [".hello", ".greetings"];
+  const sections = [".hello", ".greetings", ".maps"];
 
   sections.forEach(sectionSelector => {
     const textSelector = `${sectionSelector} .text-int`;
