@@ -6,17 +6,21 @@
     :date="date"
     :messages="ko.message"
   />
+  <Maps :name="location.name" :detail="location.detail" />
 </template>
 
 <script setup lang="ts">
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { onMounted } from "vue";
+import { useKakao } from "vue3-kakao-maps/@utils";
 
 import Greetings from "./components/Greetings.vue";
 import Hello from "./components/Hello.vue";
+import Maps from "./components/Maps.vue";
 import { date, en, ko, location } from "./config/config.json";
 
+useKakao(import.meta.env.VITE_KAKAO_API_KEY);
 gsap.registerPlugin(ScrollTrigger);
 
 const elements = {
@@ -39,7 +43,7 @@ const elements = {
 };
 
 function gsaps() {
-  const sections = [".hello-kv", ".greetings"];
+  const sections = [".hello-kv", ".greetings", ".maps"];
 
   sections.forEach(sectionSelector => {
     const textSelector = `${sectionSelector} .text-int`;
