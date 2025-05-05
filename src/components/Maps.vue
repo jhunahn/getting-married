@@ -32,7 +32,9 @@
       <ul class="way text-int">
         <li class="tt short">
           <dl>
-            <dt>지하철</dt>
+            <dt>
+              <span class="material-symbols-outlined">directions_subway</span>
+            </dt>
             <dd>{{ detail.transfortation.subway.desc }}</dd>
           </dl>
         </li>
@@ -40,7 +42,9 @@
       <ul class="way text-int">
         <li class="tt short">
           <dl>
-            <dt>버스</dt>
+            <dt>
+              <span class="material-symbols-outlined">directions_bus</span>
+            </dt>
             <dd>
               <li v-for="(item, key) in detail.transfortation.bus" :key="key">
                 {{ key }}: {{ item }}
@@ -121,6 +125,10 @@ const messages = props.detail.base;
   left: #{-$side-padding};
   background-color: pink;
 }
+.material-symbols-outlined {
+  font-size: 24px;
+  vertical-align: middle;
+}
 .way {
   margin: 32px 0 0 20px;
   > li {
@@ -130,10 +138,10 @@ const messages = props.detail.base;
     dl {
       display: flex;
       dt {
-        width: 200rem;
+        width: 40rem;
       }
       dd {
-        width: calc(100% - 200rem);
+        width: calc(100% - 40rem);
       }
     }
   }
