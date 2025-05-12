@@ -1,0 +1,90 @@
+{
+  "1": {
+    "bg": "#0052A4",
+    "text": "white"
+  },
+  "2": {
+    "bg": "#00A84D",
+    "text": "white"
+  },
+  "3": {
+    "bg": "#EF7C1C",
+    "text": "white"
+  },
+  "4": {
+    "bg": "#00A5DE",
+    "text": "black"
+  },
+  "5": {
+    "bg": "#996CAC",
+    "text": "white"
+  },
+  "6": {
+    "bg": "#CD7C2F",
+    "text": "black"
+  },
+  "7": {
+    "bg": "#747F00",
+    "text": "white"
+  },
+  "8": {
+    "bg": "#E6186C",
+    "text": "black"
+  },
+  "9": {
+    "bg": "#BB8336",
+    "text": "white"
+  },
+  "경강선": {
+    "bg": "#0054A6",
+    "text": "white"
+  },
+  "공항철도": {
+    "bg": "#0090D2",
+    "text": "white"
+  },
+  "경의중앙선": {
+    "bg": "#77C4A3",
+    "text": "white"
+  },
+  "신분당선": {
+    "bg": "#D4003B",
+    "text": "white"
+  },
+  "수인분당선": {
+    "bg": "#FABE00",
+    "text": "white"
+  },
+  "경춘선": {
+    "bg": "#0C8E72",
+    "text": "white"
+  },
+  "우이신설선": {
+    "bg": "#B7C452",
+    "text": "white"
+  },
+  "서해선": {
+    "bg": "#81A914",
+    "text": "white"
+  },
+  "인천1호선": {
+    "bg": "#7CA8D5",
+    "text": "white"
+  },
+  "인천2호선": {
+    "bg": "#ED8B00",
+    "text": "white"
+  },
+  "에버라인": {
+    "bg": "#6FB245",
+    "text": "white"
+  },
+  "의정부경전철": {
+    "bg": "#FDA600",
+    "text": "white"
+  },
+  "김포골드라인": {
+    "bg": "#AD8605",
+    "text": "white"
+  }
+}
