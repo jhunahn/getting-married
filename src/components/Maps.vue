@@ -61,6 +61,20 @@
               <span class="material-symbols-outlined">directions_subway</span>
             </dt>
             <dd>
+              <div>
+                <span
+                  v-for="(metro, idx) in location.detail.transfortation.subway
+                    .lines"
+                  :key="idx"
+                  :style="{
+                    color: subwayColorMap[metro].text,
+                    backgroundColor: subwayColorMap[metro].bg,
+                  }"
+                  class="color-box"
+                >
+                  {{ metro }}
+                </span>
+              </div>
               <span
                 v-for="(item, idx) in location.detail.transfortation.subway
                   .desc"
@@ -80,10 +94,22 @@
             </dt>
             <dd>
               <li
-                v-for="(item, key) in location.detail.transfortation.bus"
-                :key="key"
+                v-for="(item, index) in location.detail.transfortation.bus"
+                :key="index"
               >
-                {{ key }}: {{ item }}
+                <div>
+                  <span
+                    v-for="(busNumber, lineIndex) in item.lines"
+                    :key="lineIndex"
+                    :style="{
+                      color: busColorMap[busNumber.color].text,
+                      backgroundColor: busColorMap[busNumber.color].bg,
+                    }"
+                    class="color-box"
+                    >{{ busNumber.number }}
+                  </span>
+                </div>
+                <span>{{ item.desc }}</span>
               </li>
             </dd>
           </dl>
@@ -98,6 +124,9 @@ import { defineProps } from "vue";
 import { KakaoMap, KakaoMapMarker } from "vue3-kakao-maps";
 
 import ContentsTitle from "@/components/ContentsTitle.vue";
+
+import busColors from "../config/busColors.json";
+import seoulMetroColors from "../config/seoulMetroColors.json";
 
 type LocationInformation = {
   name: string;
@@ -119,11 +148,25 @@ type LocationInformation = {
         desc: string[];
       };
       bus: {
-        [key: string]: string;
-      };
+        lines: {
+          number: number;
+          color: string;
+        }[];
+        desc: string;
+      }[];
     };
   };
 };
+
+type TransferColorMap = {
+  [key: string | number]: {
+    text: string;
+    bg: string;
+  };
+};
+
+const busColorMap = busColors as TransferColorMap;
+const subwayColorMap = seoulMetroColors as TransferColorMap;
 
 defineProps<{
   location: LocationInformation;
@@ -199,5 +242,13 @@ defineProps<{
       }
     }
   }
+}
+.color-box {
+  display: inline-block;
+  border-radius: 10rem;
+  padding: 1.2rem 5px;
+  margin: 2rem;
+  text-align: center;
+  font-size: 80%;
 }
 </style>
