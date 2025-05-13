@@ -1,13 +1,10 @@
 <template>
   <div ref="greeting" class="greetings">
-    <ContentsTitle title="초대합니다." :is-right="false" :messages="messages" />
-    <div class="info">
-      <p class="info-date text-int">
-        <span class="tt">{{ formattedDates.full }}</span>
-        <span class="tt">{{ formattedDates.hour }}</span>
-      </p>
-    </div>
-
+    <p v-if="messages" class="text-int message">
+      <span v-for="(item, index) in messages" :key="index" class="tt">
+        {{ item }}
+      </span>
+    </p>
     <div class="parents">
       <p class="text-int">
         <span class="parents-name tt">{{ detail.groom.father }}</span>
@@ -23,12 +20,16 @@
         <strong class="tt">{{ detail.bride.name }}</strong>
       </p>
     </div>
+    <div class="info">
+      <p class="info-date text-int">
+        <span class="tt">{{ formattedDates.full }}</span>
+        <span class="tt">{{ formattedDates.hour }}</span>
+      </p>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
 import { computed, defineOptions, defineProps } from "vue";
-
-import ContentsTitle from "@/components/ContentsTitle.vue";
 
 defineOptions({
   name: "Greetings",
@@ -55,7 +56,7 @@ type CoupleInfo = {
 const props = defineProps<{
   detail: CoupleInfo;
   date: WeddingDate;
-  messages: Array<string>;
+  messages?: Array<string>;
 }>();
 
 const formattedDates = computed(() => {
@@ -72,7 +73,7 @@ const formattedDates = computed(() => {
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "@/assets/css/reset.scss";
 @import "@/assets/css/variables.scss";
 @import "@/assets/css/common.scss";
@@ -81,56 +82,63 @@ const formattedDates = computed(() => {
   position: relative;
   color: $col-key;
   padding-top: 20px;
-}
 
-.info {
-  position: relative;
-  z-index: $z-bg;
-  margin: #{$top-gap}px 0 0 $left-gap;
-  font-size: $font-s;
-  line-height: 1.6;
-}
+  .message {
+    text-align: center;
+    font-size: $font-xs;
+    margin-top: 20px;
+    line-height: 1.6;
+  }
 
-.parents {
-  position: relative;
-  z-index: $z-bg;
-  margin: #{$top-gap}px 0 0 $left-gap;
-  > p {
-    display: flex;
-    flex-wrap: wrap;
-    .parents-name {
-      display: inline-block;
-      font-size: $font-xs;
-      & + .parents-name {
-        position: relative;
-        margin-left: 20px;
-        &::before {
-          content: "";
-          position: absolute;
-          top: 8px;
-          left: -12px;
-          width: 4px;
-          height: 4px;
-          border-radius: 50%;
-          background-color: $col-key;
+  .info {
+    position: relative;
+    z-index: $z-bg;
+    margin: #{$top-gap}px 0 0 $left-gap;
+    font-size: $font-s;
+    line-height: 1.6;
+  }
+
+  .parents {
+    position: relative;
+    z-index: $z-bg;
+    margin: #{$top-gap}px 0 0 $left-gap;
+    > p {
+      display: flex;
+      flex-wrap: wrap;
+      .parents-name {
+        display: inline-block;
+        font-size: $font-xs;
+        & + .parents-name {
+          position: relative;
+          margin-left: 20px;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: -12px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: $col-key;
+          }
         }
       }
-    }
-    > em {
-      display: inline-block;
-      margin-left: 5px;
-      font-size: $font-xxs;
-      vertical-align: middle;
-      text-align: left;
-      & + strong {
+      > em {
         display: inline-block;
-        margin: 0 0 0 20px;
-        font-size: $font-xs;
-        font-weight: bold;
+        margin-left: 5px;
+        font-size: $font-xxs;
+        vertical-align: middle;
+        text-align: left;
+        & + strong {
+          display: inline-block;
+          margin: 0 0 0 20px;
+          font-size: $font-xs;
+          font-weight: bold;
+        }
       }
-    }
-    & + p {
-      margin-top: 40px;
+      & + p {
+        margin-top: 40px;
+      }
     }
   }
 }
