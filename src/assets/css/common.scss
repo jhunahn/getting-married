@@ -83,7 +83,8 @@ textarea {
   visibility: hidden;
   opacity: 0;
   transition: transform 1.5s cubic-bezier(.15,.85,.45,1),opacity 1.5s cubic-bezier(.32,.94,.6,1);
-  text-align: left;
+  justify-content: center;
+  text-align: center;
   .tt {
     display: block;
     transform: translate(0,100%);

@@ -238,6 +238,7 @@ defineProps<{
         width: 40rem;
       }
       dd {
+        text-align: left;
         width: calc(100% - 40rem);
       }
     }
