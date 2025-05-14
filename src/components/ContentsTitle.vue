@@ -1,9 +1,5 @@
 <template>
-  <div
-    ref="contentsTitle"
-    class="contents-title"
-    :class="{ 'is-right': isRight }"
-  >
+  <div ref="contentsTitle" class="contents-title">
     <h2 class="text-int">
       <strong class="tt">{{ title }}</strong>
     </h2>
@@ -21,7 +17,6 @@ import { defineProps } from "vue";
 defineProps<{
   title: string;
   messages?: Array<string>;
-  isRight?: boolean;
 }>();
 </script>
 
@@ -32,18 +27,8 @@ defineProps<{
 .contents-title {
   position: relative;
   z-index: $z-bg;
-  margin: 0 0 34px $left-gap;
+  margin: 0 0 34px 0;
   color: $col-key;
-  &.is-right {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    h2 strong:before {
-      right: auto;
-      left: -50px;
-    }
-  }
   h2 {
     font-size: $font-mid-s;
     strong {
