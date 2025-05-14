@@ -93,7 +93,7 @@ const formattedDates = computed(() => {
   .info {
     position: relative;
     z-index: $z-bg;
-    margin: #{$top-gap}px 0 0 $left-gap;
+    margin: #{$top-gap}px 0 0 0;
     font-size: $font-s;
     line-height: 1.6;
   }
@@ -101,7 +101,7 @@ const formattedDates = computed(() => {
   .parents {
     position: relative;
     z-index: $z-bg;
-    margin: #{$top-gap}px 0 0 $left-gap;
+    margin: #{$top-gap}px 0 0 0;
     > p {
       display: flex;
       flex-wrap: wrap;
