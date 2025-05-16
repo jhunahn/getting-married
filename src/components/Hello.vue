@@ -10,8 +10,8 @@
 </template>
 
 <script setup lang="ts">
-import headImage from "@/assets/images/we.png";
 import and from "@/assets/images/and.png";
+import headImage from "@/assets/images/we.png";
 
 defineProps<{
   groom?: string;
