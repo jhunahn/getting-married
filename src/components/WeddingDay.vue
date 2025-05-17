@@ -1,6 +1,9 @@
 <template>
   <div ref="wedding-day" class="wedding-day">
-    <ContentsTitle title="Wedding Day" />
+    <ContentsTitle
+      title="Wedding Day"
+      :messages="[Object.values(formattedDates).join(' ')]"
+    />
     <div class="text-int">
       <Calendar
         class="tt"
@@ -15,9 +18,9 @@
         :to-page="calendarPage"
         :selectable="false"
       />
-      <div class="info">
-        <span class="tt">{{ formattedDates.full }}</span>
-        <span class="tt">{{ formattedDates.hour }}</span>
+      <div class="text-int d-day">
+        <strong class="tt">{{ dDay }}일</strong>
+        <span class="tt">남았습니다.</span>
       </div>
     </div>
   </div>
@@ -63,6 +66,12 @@ const formattedDates = computed(() => {
     hour: `${strHour}시 ${minute}분`,
   };
 });
+
+const dDay = computed(() => {
+  const timeDiff = weddingDay.value.getTime() - new Date().getTime();
+  const dayDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+  return dayDiff;
+});
 </script>
 
 <style lang="scss">
@@ -76,15 +85,17 @@ const formattedDates = computed(() => {
   color: $col-key;
   margin-top: #{$top-gap-2x}px;
 
-  .info {
+  .d-day {
     position: relative;
-    z-index: $z-bg;
     line-height: 1.6;
-
-    > span {
+    z-index: $z-bg;
+    font-size: $font-xs;
+    .tt {
       display: inline-block;
-      font-size: $font-xs;
-      padding: 10px;
+      padding: 4rem;
+    }
+    > strong {
+      font-weight: bold;
     }
   }
 }
@@ -95,6 +106,7 @@ const formattedDates = computed(() => {
   --vc-bg: $bg-color !important;
   .vc-title {
     color: $col-key !important;
+    pointer-events: none;
   }
   .vc-arrow {
     display: none;
