@@ -22,6 +22,13 @@
         "firstName": "Jihun",
         "lastName": "Ahn"
       },
+      "account": [
+        {
+          "name": "안지훈",
+          "bank": "새마을금고",
+          "number": "9003-2052-2395-2"
+        }
+      ],
       "father": {
           "firstName": "병규",
           "lastName": "안"
@@ -41,6 +48,13 @@
         "firstName": "Hyojeong",
         "lastName": "Nam"
       },
+      "account": [
+        {
+          "name": "남효정",
+          "bank": "카카오뱅크",
+          "number": "3333-02-3951841"
+        }
+      ],
       "father": {
           "firstName": "광우",
           "lastName": "남"
