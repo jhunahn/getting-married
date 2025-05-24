@@ -49,6 +49,8 @@ defineProps<{
     margin: #{$top-gap-h / 3}px 0;
 
     &.top {
+      margin: 0 0;
+
       animation-delay: 0.3s;
       font-family: "Pretendard", serif;
       letter-spacing: 4px;
