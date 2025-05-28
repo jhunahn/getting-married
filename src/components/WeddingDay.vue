@@ -19,11 +19,17 @@
         <strong class="tt">{{ weddingDay.dDay }}일</strong>
         <span class="tt">남았습니다.</span>
       </div>
+      <add-to-calendar-button
+        class="text-int add-cal"
+        v-bind="addToCalendarOptions"
+      ></add-to-calendar-button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import "add-to-calendar-button";
+
 import { DatePicker as Calendar } from "v-calendar";
 import { computed, defineProps } from "vue";
 
@@ -37,8 +43,39 @@ type WeddingDate = {
   minute: number;
 };
 
+type Schedule = {
+  name: string;
+  description: string;
+  location: string;
+};
+
+const addToCalendarOptions = computed(() => {
+  const { name, description, location } = props.schedule;
+  const { date } = weddingDay.value;
+
+  const end = new Date(date);
+  end.setHours(date.getHours() + 2);
+  const ua = navigator.userAgent.toLowerCase();
+  const options = /iphone|ipad|ipod|mac os/.test(ua) ? "Apple" : "iCal";
+  return {
+    name,
+    description,
+    location,
+    options,
+    startDate: date.toISOString().split("T")[0],
+    startTime: date.toTimeString().split(" ")[0],
+    endTime: end.toTimeString().split(" ")[0],
+    status: "CONFIRMED",
+    timeZone: "Asia/Seoul",
+    language: "ko",
+    lightMode: "bodyScheme",
+    styleLight: "--font: 'Noto-Serif'",
+  };
+});
+
 const props = defineProps<{
   date: WeddingDate;
+  schedule: Schedule;
 }>();
 
 const weddingDay = computed(() => {
@@ -67,6 +104,12 @@ const weddingDay = computed(() => {
   position: relative;
   color: $col-key;
   margin-top: #{$top-gap}px;
+
+  .add-cal {
+    display: inline-flex;
+    align-items: center;
+    margin-top: #{$top-gap-h / 2}px;
+  }
 
   .d-day {
     position: relative;
