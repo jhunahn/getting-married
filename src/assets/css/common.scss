@@ -15,7 +15,12 @@
     url('@/assets/fonts/NotoSerifKR-Medium.woff2') format('woff2'),
     url('@/assets/fonts/NotoSerifKR-Medium.woff') format('woff');
 }
-
+@font-face {
+  font-family: 'Palace Script MT Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('@/assets/fonts/Palace script.woff') format('woff');
+}
 
 html, body {
   font-family: 'Noto-Serif';

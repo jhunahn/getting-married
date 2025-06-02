@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>
       <span class="fade-up top">{{ groom }}</span>
-      <span class="fade-up middle"><img :src="and" /></span>
+      <span class="fade-up middle">and</span>
       <span class="fade-up bottom">{{ bridal }}</span>
       <img
         v-if="imageUrl"
@@ -16,8 +16,6 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-
-import and from "@/assets/images/and.png";
 
 const prop = defineProps<{
   groom: string;
@@ -77,9 +75,8 @@ const imageUrl = computed(() => {
 
     &.middle {
       animation-delay: 1.1s;
-      font-style: italic;
-      font-family: cursive;
-      font-size: $font-s;
+      font-family: "Palace Script MT Regular" !important;
+      font-size: 60rem;
       letter-spacing: 2px;
       margin: 0.2rem 0;
 
